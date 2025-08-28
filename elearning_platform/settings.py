@@ -23,7 +23,9 @@ CSRF_TRUSTED_ORIGINS = [
 
 # --- Apps ---
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",  # dev convenience (no collectstatic needed locally)
+     'cloudinary',
+    'cloudinary_storage',
+    "whitenoise.runserver_nostatic", 
     "drf_spectacular",
     "rest_framework",
     "widget_tweaks",
@@ -103,7 +105,8 @@ LOGIN_REDIRECT_URL = "/dashboard/"
 LOGOUT_REDIRECT_URL = "/accounts/login/"
 
 # --- Media ---
-MEDIA_URL = "/media/"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_URL = '/media/'  # URLs will be Cloudinary links
 MEDIA_ROOT = BASE_DIR / "media"
 
 # --- Password validators ---
