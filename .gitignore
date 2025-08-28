@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+.env
+.env.*
+*.log
+
+# Virtual envs
+venv/
+.venv/
+env/
+.wsl_venv/
+wsl_venv/
+python_env/
+
+# Node/Tailwind
+node_modules/
+tailwind-test/
+npm-debug.log*
+yarn-error.log*
+.pnp.*
+.pnp.js
+
+# Django collected/static & media uploads
+staticfiles/
+media/
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
