@@ -23,6 +23,8 @@ CSRF_TRUSTED_ORIGINS = [
 
 # --- Apps ---
 INSTALLED_APPS = [
+      "cloudinary",
+    "cloudinary_storage",
     "whitenoise.runserver_nostatic",  # dev convenience (no collectstatic needed locally)
     "drf_spectacular",
     "rest_framework",
@@ -105,6 +107,17 @@ LOGOUT_REDIRECT_URL = "/accounts/login/"
 # --- Media ---
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+CLOUDINARY_URL = os.getenv("CLOUDINARY_URL", "")
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME", None),
+    "API_KEY": os.getenv("CLOUDINARY_API_KEY", None),
+    "API_SECRET": os.getenv("CLOUDINARY_API_SECRET", None),
+    "SECURE": True,          # use https
+    # "overwrite": False,    # keep versions if you prefer
+}
 
 # --- Password validators ---
 AUTH_PASSWORD_VALIDATORS = [
